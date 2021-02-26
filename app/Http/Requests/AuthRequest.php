@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ContactMailRequest extends FormRequest
+class AuthRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,11 +25,8 @@ class ContactMailRequest extends FormRequest
     {
         return [
             //
-            'email' => 'required|email',
-            'firstAndLastName' => 'required|string|min:5',
-            'message' => 'required|string|min:10|max:255'
+            'email' => 'email|required',
+            'password' => 'required'
         ];
     }
-
-
 }

@@ -13,12 +13,9 @@ class MailController extends Controller
         return view('contact');
     }
     public function store(ContactMailRequest $request){
-        //uzeti mail iz forme i staviti da je to mail od posaljioca and MAIL TO je od vlasnika sajta
        $validation =  $request->validated();
-        return [$validation, 'message'=> 'E-mail je poslat!'];
-        //     Mail::to('info@nskont.rs')
-        //     ->send(new Contact(validation['email']));
-        // return redirect('/mail')->with('message', 'Email sent!');
-
+       Mail::to('info@nskont.com')
+       ->send(new Contact());
+       return [$validation, 'message'=> 'E-mail je poslat!'];
     }
 }
