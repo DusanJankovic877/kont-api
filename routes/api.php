@@ -3,6 +3,8 @@ use App\Http\Controllers\MailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,13 +25,14 @@ Route::group([
     'prefix' => 'auth'
 ], function($router){
     Route::post('/logout', [AuthController::class , 'logout']);
-
     Route::post('/login', [AuthController::class , 'login']);
     Route::get('/me', [AuthController::class , 'me']);
+    Route::post('/create', [ PostController::class, 'store']);
 });
     // Route::middleware('auth')->get('/me', function(){
     //     return auth()->user();
     // });
 Route::post('/mail', [ MailController::class, 'store' ]);
+
 
 

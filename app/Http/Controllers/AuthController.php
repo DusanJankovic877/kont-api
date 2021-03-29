@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Http\Requests\AuthRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +24,9 @@ class AuthController extends Controller
         return ['token' => $this->respondWithToken($token) , 'user' => auth()->user(), 'message' => 'Uspešno ste se prijavili'];
     }
     public function isValidToken(Request $request)
-{
-    return response()->json(['valid' => auth()->check()]);
-
-}
-
+    {
+        return response()->json(['valid' => auth()->check()]);
+    }
     public function logout(Request $request)
     {
         $token = JWTAuth::getToken();
