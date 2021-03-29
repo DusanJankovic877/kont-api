@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -23,10 +26,18 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //
-        return $request;
+        $validated = $request->validated();
+        Post::create([
+            'user_id' => $request["userId"],
+            'title' => $validated["title"],
+            'img_url' => $validated["image_url"],
+            "delta" => $validated["delta"]
+        ]);
+
+        return response()->json(["message" => "Uspešno ste kreirali objavu"], 200);
     }
 
     /**
