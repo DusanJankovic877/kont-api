@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('title');
+            $table->string('description');
             $table->string('img_url');
             $table->string('delta')->nullable();
             $table->timestamps();

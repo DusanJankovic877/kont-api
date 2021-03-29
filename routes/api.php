@@ -28,6 +28,8 @@ Route::group([
     Route::post('/login', [AuthController::class , 'login']);
     Route::get('/me', [AuthController::class , 'me']);
     Route::post('/create', [ PostController::class, 'store']);
+    Route::get('/posts', [ PostController::class, 'index']);
+
 });
     // Route::middleware('auth')->get('/me', function(){
     //     return auth()->user();

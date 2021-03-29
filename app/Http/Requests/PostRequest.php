@@ -26,6 +26,7 @@ class PostRequest extends FormRequest
         return [
             //
             "title" => "required|string|min:5",
+            "description" => "required|string|min:5",
             "image_url" => "required|url",
             "delta" => "required|string"
         ];

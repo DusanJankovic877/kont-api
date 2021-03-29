@@ -18,6 +18,8 @@ class PostController extends Controller
     public function index()
     {
         //
+        $posts = Post::all();
+        return $posts;
     }
 
     /**
@@ -33,6 +35,7 @@ class PostController extends Controller
         Post::create([
             'user_id' => $request["userId"],
             'title' => $validated["title"],
+            'description' => $validated["description"],
             'img_url' => $validated["image_url"],
             "delta" => $validated["delta"]
         ]);
