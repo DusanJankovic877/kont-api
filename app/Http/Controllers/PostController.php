@@ -36,7 +36,7 @@ class PostController extends Controller
             'user_id' => $request["userId"],
             'title' => $validated["title"],
             'description' => $validated["description"],
-            'img_url' => $validated["image_url"],
+            'img_url' => $validated["img_url"],
             "delta" => $validated["delta"]
         ]);
 
@@ -49,9 +49,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
         //
+        $response = Post::findOrFail($id);
+        return $response;
     }
 
     /**
