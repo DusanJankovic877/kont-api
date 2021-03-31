@@ -30,6 +30,7 @@ Route::group([
     Route::post('/create', [ PostController::class, 'store']);
     Route::get('/posts', [ PostController::class, 'index']);
     Route::get('/posts/{id}', [ PostController::class, 'show']);
+    Route::delete('/posts/{id}', [ PostController::class, 'destroy']);
 
 });
     // Route::middleware('auth')->get('/me', function(){
